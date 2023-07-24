@@ -18,6 +18,9 @@ class Category(models.Model):
 #2.(returns name from class in a clear form)
 
 class Product(models.Model):
+    #linking category and product through a foreign key, will add category to products
+
+    category = models.ForeignKey(Category, related_name='product',on_delete=models.CASCADE, null=True)
 
     title=models.CharField(max_length=250)
 
