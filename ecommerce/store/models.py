@@ -29,7 +29,7 @@ class Product(models.Model):
 
     price=models.DecimalField(max_digits=5,decimal_places=2) #product price
 
-    image = models.ImageField(upload_to='images/') #pillow installation required
+    image = models.ImageField(upload_to='images/') #pillow installation required; upon uploading an image will create an image subfolder in media
 
     class Meta:
         verbose_name_plural = 'products' #django by default adds an s to category name
