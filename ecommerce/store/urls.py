@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views #in teh same directory
+from . import views #in the same directory
 
 urlpatterns = [
 
