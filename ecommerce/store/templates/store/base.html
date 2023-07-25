@@ -92,7 +92,7 @@
                         </li>
 
                         {%  for category in all_categories %}
-                            <a class="dropdown-item" href="">{{ category.name|capfirst }}</a>
+                            <a class="dropdown-item" href="{{ category.get_absolute_url }}">{{ category.name|capfirst }}</a>
 
 
                         {%  endfor %}

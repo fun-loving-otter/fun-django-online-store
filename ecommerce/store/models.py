@@ -20,9 +20,9 @@ class Category(models.Model):
 #2.(returns name from class in a clear form)
 
 #dynamic links for categories
-#    def get_absolute_url(self):
+    def get_absolute_url(self):
 
-#        return reverse('list-category',args=(self.slug))
+        return reverse('list-category',args=[self.slug])
 
 
 
@@ -55,4 +55,4 @@ class Product(models.Model):
 #dynamic links for products
     def get_absolute_url(self):
 
-        return reverse('product-info',args=(self.slug))
+        return reverse('product-info',args=[self.slug])
