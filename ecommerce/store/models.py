@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.urls import reverse
+
 # Create your models here.
 
 #1.category, shorts, shoes, pants etc., all unique
@@ -16,6 +18,13 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 #2.(returns name from class in a clear form)
+
+#dynamic links for categories
+#    def get_absolute_url(self):
+
+#        return reverse('list-category',args=(self.slug))
+
+
 
 class Product(models.Model):
     #linking category and product through a foreign key, will add category to products
@@ -42,3 +51,8 @@ class Product(models.Model):
         return self.title  #(products referenced by their correct title instead of product1, or product2)
 
     # 3. makemigrations, migrate
+
+#dynamic links for products
+    def get_absolute_url(self):
+
+        return reverse('product-info',args=(self.slug))
