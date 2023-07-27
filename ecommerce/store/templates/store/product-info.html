@@ -65,6 +65,18 @@
                                     <option value="3">3</option>
               
                                     <option value="4">4</option>
+
+                                    <option value="5">5</option>
+
+                                    <option value="6">6</option>
+
+                                    <option value="7">7</option>
+
+                                    <option value="8">8</option>
+
+                                    <option value="9">9</option>
+
+                                    <option value="10">10</option>
               
                                 </select>
 
@@ -72,7 +84,7 @@
 
                             <div class="col-6 text-end">
                                 
-                                <button type="button" id="add-button" value="" class="btn btn-secondary btn-sm">
+                                <button type="button" id="add-button" value="{{product.id}}" class="btn btn-secondary btn-sm">
                         
                                 Add to cart 
                             
@@ -96,5 +108,48 @@
     <br>
 
 </div>
+
+    <script>
+
+
+$(document).on('click', '#add-button', function(e){
+
+    e.preventDefault();
+
+    $.ajax({
+
+        type:'POST',
+        url:'{% url "cart-add" %}',
+        data: {
+
+            product_id: $('add-button').val(),
+            product_quantity: $('#select option:selected').text(),
+            csrtmiddlewaretoken: "{{ csrf_token }}",
+            action:'post'
+
+
+        },
+
+        success: function(json) {
+
+        },
+
+        error: function (xhr,errmsg,err){
+
+        }
+
+        });
+
+
+
+
+
+
+    })
+
+
+
+
+    </script>
 
 {% endblock %}
