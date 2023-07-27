@@ -30,7 +30,11 @@ def cart_add(request):                           #grabbing AJAX functionality fr
 
         cart.add(product=product, product_qty=product_quantity)      #getting a particular product along with its quantity
 
-        response = JsonResponse({'The product is called:': product.title, 'and the product quantity is:':product_quantity})
+
+        cart_quantity = cart.__len__()                               #total quantity from session data
+
+
+        response = JsonResponse({'qty':cart_quantity})
 
         return response
 
