@@ -140,10 +140,11 @@
 
                         &nbsp;
 
-                        <div id>"cart-qty" class="d-inline-flex"
+                        <div id="cart-qty" class="d-inline-flex">
 
 
-                            {% with qty_amount=cart| length %}
+                            {% with qty_amount=cart|length %}
+
 
                                 {%  if qty_amount > 0 %}
 
@@ -151,7 +152,7 @@
 
                                     {% else %}
 
-                                        0
+
                                 {%  endif %}
 
 

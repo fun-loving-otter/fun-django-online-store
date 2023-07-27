@@ -122,9 +122,9 @@ $(document).on('click', '#add-button', function(e){
         url:'{% url "cart-add" %}',
         data: {
 
-            product_id: $('add-button').val(),
+            product_id: $('#add-button').val(),
             product_quantity: $('#select option:selected').text(),
-            csrtmiddlewaretoken: "{{ csrf_token }}",
+            csrfmiddlewaretoken: "{{ csrf_token }}",
             action:'post'
 
 
