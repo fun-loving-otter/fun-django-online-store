@@ -68,7 +68,9 @@ class Cart():
 
         products = Product.objects.filter(id__in=all_product_ids)                            #checking if products in cart matche the database
 
-        cart = self.cart.copy()
+        import copy
+
+        cart = copy.deepcopy(self.cart)                                                      #deep copy to create an independent copy without modifying the original object
 
         for product in products:
 
