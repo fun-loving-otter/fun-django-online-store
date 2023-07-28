@@ -20,7 +20,7 @@ def cart_add(request):                                                          
 
     cart=Cart(request)                                                                                    #using session data
 
-    if request.POST.get('action') =='post':                                                              #verifying AJAX request, if correct accessing it
+    if request.POST.get('action') =='post':                                                                #verifying AJAX request, if correct accessing it
 
         product_id= int(request.POST.get('product_id'))
         product_quantity = int(request.POST.get('product_quantity'))
@@ -57,6 +57,22 @@ def cart_delete(request):
 
         return response
 
+
 def cart_update(request):
 
-    pass
+    cart = Cart(request)
+
+    if request.POST.get('action') =='post':
+
+        product_id=int(request.POST.get('product_id'))
+        product_quantity = int(request.POST.get('product_quantity'))
+
+        cart.update(product=product_id,qty=product_quantity)
+
+        cart_quantity = cart.__len__()                                                                            #updating the session
+
+        cart_total=cart.get_total()
+
+        response = JsonResponse({'qty':cart_quantity,'total':cart_total})
+
+        return response
