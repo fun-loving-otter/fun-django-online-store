@@ -27,6 +27,9 @@ urlpatterns = [
     path('', include('store.urls')),
 
     path('cart/', include('cart.urls')),
+
+    path('account/', include('account.urls')),
+
 ]
 
 #path for images, appending them
