@@ -6,7 +6,7 @@ urlpatterns = [
 
         path('register',views.register,name='register'),
 
-        path('email-verification', views.email_verification, name='email-verification'),
+        path('email-verification/<str:uidb64><str:token>/', views.email_verification, name='email-verification'),       #making url dynamic
 
         path('email-verification-sent', views.email_verification_sent, name='email-verification-sent'),
 
