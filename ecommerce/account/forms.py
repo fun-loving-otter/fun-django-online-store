@@ -13,13 +13,18 @@ class CreateUserForm(UserCreationForm):
     def __init__(self,*args, **kwargs):                                                                                 #gaining access to the above attributes
         super(CreateUserForm,self).__init__(*args,**kwargs)                                                             #inheriting userform and all of its fields
 
+
+        self.fields['email'].required=True                                                                              #making email a required field in the forms
+
 #Email validation
     def clean_email(self):
 
-        email=self.cleaed_data.get("email")
+        email=self.cleaned_data.get("email")
 
         if User.objects.filter(email=email).exists():                                                                   #checking if an email address already exists in a database
-            raise forms.validationError('This email is ivalid')
+            raise forms.ValidationError('This email is invalid')
 
-        if len(email>=350):
+        if len(email) >= 350:
             raise forms.ValidationError('Your email address is too long')
+
+        return email

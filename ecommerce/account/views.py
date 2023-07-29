@@ -13,11 +13,9 @@ def register(request):
 
             form.save()
 
-            return redirect('')                                                                                         #if the form was submitted correctly we will be redirected to a home page
+            return redirect('store')                                                           #if the form was submitted correctly we will be redirected to the store page
 
     context ={'form':form}                                                                                              #passing in the form inside a context
-
-
 
 
     return render(request,'account/registration/register.html',context=context)

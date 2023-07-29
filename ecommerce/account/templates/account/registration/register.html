@@ -6,11 +6,24 @@
 
 {%  block content %}
 
+    <style>
+
+
+    body{
+
+            background-color:gray;
+
+    }
+
+
+    </style>
+
+
     <body>
 
             <br>
 
-            <div class="container  bg-white shadow-md p-5">
+            <div class="container  bg-white shadow-md p-5 form_layout">
 
                     <h3> Create your account</h3>
 
@@ -32,16 +45,20 @@
                         {{ form.username|as_crispy_field }}
 
                         <br>   <br>
+
                         {{ form.email|as_crispy_field }}
 
                         <br>  <br>
+
                         {{ form.password1|as_crispy_field }}
 
-                        <br>  <br>
+                        <br>
+
                         {{ form.password2|as_crispy_field }}
 
 
                         <br><br>
+
                         <button type="submit" class="btn btn-secondary btn-lg w-100 btn-block p-2">&nbsp; Create account </button>
 
 
@@ -61,6 +78,8 @@
 
     </body>
 
+
+    <br> <br>
 
 
 
