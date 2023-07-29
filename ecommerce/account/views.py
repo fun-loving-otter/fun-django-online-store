@@ -11,8 +11,8 @@ from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes,force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode                                              #decode and encode token generator
 
-def register(request):
-
+def register(request):                                                                                                  #registration process starts HERE, once done passed
+                                                                                                                        #to email-verification.html
     form = CreateUserForm()
 
     if request.method =='POST':
@@ -52,8 +52,8 @@ def register(request):
 
 def email_verification(request,uidb64,token):                                                                           #pulling id from urls
 
-    uid = force_str(urlsafe_base64_decode(uidb64))                                                                      #decoding user id
-    user = User.objects.get(pk=id)
+    unique_id = force_str(urlsafe_base64_decode(uidb64))                                                                      #decoding user id
+    user = User.objects.get(pk=unique_id)
 
 
     #IN CASE OF SUCCESS                                                                                                 #if user clicked on verification link
