@@ -1,12 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{%  include "store/base.html" %}
 
-Your account is not verified!
+{%  load static %}
+
+{%  block content %}
+
+    <style>
+
+      body{
+
+
+          background-color:gray;
+
+      }
+
+
+    </style>
+
+    <body>
+
+        <br>
+
+        <div class="container bg-white shadow-md p-5 form-layout">
+
+                <div class="text-center">
+
+                    <i class="fa fa-times fa-3x text-danger" aria-hidden="true"></i>
+
+                    <br><br>
+
+                <h5> <strong> Email verification failed! </strong> </h5>
+
+                <hr>
+
+                <p> Please contact technical team! </p>
+
+           </div>
+
+        </div>
+
 
 </body>
-</html>
+
+{%  endblock %}
