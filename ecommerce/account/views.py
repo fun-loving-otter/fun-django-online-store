@@ -19,3 +19,22 @@ def register(request):
 
 
     return render(request,'account/registration/register.html',context=context)
+
+def email_verification(request):
+
+    pass
+
+
+def email_verification_sent(request):
+
+    pass
+
+
+def email_verification_success(request):
+
+    pass
+
+
+def email_verification_failed(request):
+
+    pass
