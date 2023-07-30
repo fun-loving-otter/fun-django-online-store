@@ -32,9 +32,29 @@ class CreateUserForm(UserCreationForm):
 
         return email
 
-#FORM
+# Log in
 
 class LoginForm(AuthenticationForm):
 
     username=forms.CharField(widget=TextInput())
     password = forms.CharField(widget=PasswordInput())
+
+#Update username and email form
+
+class UpdateUserForm(forms.ModelForm):
+
+    password=None                                                                                                       #not updating the password
+
+    class Meta:                                                                                                         #based on the user model
+
+        model= User
+
+        fields=['username','email']
+        exclude = ['password1','password1']                                                                             #not making use of the passwords
+
+
+    def __init__(self,*args, **kwargs):                                                                                 #gaining access to the above attributes
+        super(UpdateUserForm,self).__init__(*args,**kwargs)
+
+
+        self.fields['email'].required=True                                                                              #email address required when updating username
