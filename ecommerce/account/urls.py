@@ -15,9 +15,15 @@ urlpatterns = [
         path('email-verification-failed', views.email_verification_failed, name='email-verification-failed'),
 
 
+        path('user-logout',views.user_logout,name='user-logout'),
+
         path('my-login', views.my_login, name='my-login'),
 
 
+
+
         path('dashboard',views.dashboard,name='dashboard'),
+
+
 
 ]
