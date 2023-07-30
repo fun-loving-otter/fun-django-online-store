@@ -26,13 +26,26 @@
 
     <body>
 
+     <div class="container bg-white shadow-md p-5 form-layout">
+
+         <h3> <i class="fa fa-address-book" aria-hidden="true"></i> &nbsp; Profile management </h3>
+
+         <p> Manage your account effectively. </p>
+
+         <hr>
+
+
+        </div>
+
+
         <br>
 
         <div class="container bg-white shadow-md p-5 form-layout">
 
-            <h3> Update your account </h3>
+            <h4> Update your account </h4>
 
-            <br>
+            <hr>
+
             <br>
 
             <form method="POST" autocomplete="off">
@@ -52,7 +65,7 @@
 
 
 
-                <button type="submit" class="btn btn-primary navbar-btn text-white w-100 btn-block p-2"> &nbsp;Update your account </button>
+                <button type="submit" class="btn btn-primary navbar-btn text-white"> &nbsp;Update your account </button>
 
                 <br> <br>
 
@@ -73,7 +86,6 @@
 
             <p> Proceed if you wish to delete your account.</p>
 
-            <hr>
 
             <a class="btn btn-primary navbar-btn text-white" type="button"  href="{% url 'delete-account' %}"> Delete your account </a>
 
