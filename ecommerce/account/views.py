@@ -135,3 +135,20 @@ def dashboard(request):
 
     return render(request,'account/dashboard.html')
 
+@login_required(login_url='my-login')
+def profile_management(request):
+
+    return render(request,'account/profile-management.html')
+
+
+
+@login_required(login_url='my-login')
+def delete_account(request):
+
+    return render(request,'account/delete-account.html')
+
+
+
+
+
+
