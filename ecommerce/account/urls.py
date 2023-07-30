@@ -14,4 +14,10 @@ urlpatterns = [
 
         path('email-verification-failed', views.email_verification_failed, name='email-verification-failed'),
 
+
+        path('my-login', views.my_login, name='my-login'),
+
+
+        path('dashboard',views.dashboard,name='dashboard'),
+
 ]

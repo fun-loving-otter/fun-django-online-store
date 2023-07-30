@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.template import ContextPopException
 
-from . forms import CreateUserForm
+from . forms import CreateUserForm, LoginForm
 
 from django.contrib.auth.models import User
 
@@ -10,6 +11,10 @@ from .token import user_tokenizer_generate
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes,force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode                                              #decode and encode token generator
+
+
+from django.contrib.auth.models import auth
+from django.contrib.auth import authenticate,login,logout
 
 def register(request):                                                                                                  #registration process starts HERE, once done passed
                                                                                                                         #to email-verification.html
@@ -39,7 +44,7 @@ def register(request):                                                          
                 'token': user_tokenizer_generate.make_token(user),
             })
 
-            user.email_user(subject=subject,message=subject)
+            user.email_user(subject=subject,message=message)
 
 
             return redirect('email-verification-sent')                                                                  #once a form gets submitted, redirection to emaiil-verification-sent
@@ -87,3 +92,43 @@ def email_verification_success(request):
 def email_verification_failed(request):
 
     return render(request,'account/registration/email-verification-failed.html')
+
+
+
+def my_login(request):
+
+    form = LoginForm()
+
+    if request.method =='POST':
+
+        form = LoginForm(request,data=request.POST)
+
+        if form.is_valid():
+
+            username=request.POST.get('username')
+            password=request.POST.get('password')
+
+            user = authenticate(request,username=username,password=password)
+
+            if user is not None:
+
+                auth.login(request, user)
+
+                return redirect('dashboard')
+
+
+    context = {'form':form}
+
+    return render(request,'account/my-login.html',context=context)
+
+
+
+
+
+
+
+
+def dashboard(request):
+
+    return render(request,'account/dashboard.html')
+
