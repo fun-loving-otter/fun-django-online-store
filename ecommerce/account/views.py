@@ -140,6 +140,9 @@ def profile_management(request):
 
     #Updating user's username and email
 
+    user_form = UpdateUserForm(instance=request.user)                                                                   #updating a specific instance of user
+
+
     if request.method =='POST':
 
         user_form=UpdateUserForm(request.POST,instance=request.user)                                                    #based on the currently signed in user
@@ -149,8 +152,6 @@ def profile_management(request):
             user_form.save()
 
             return redirect('dashboard')
-
-    user_form = UpdateUserForm(instance=request.user)                                                                   #updating a specific instance of user
 
 
     context ={'user_form':user_form}
